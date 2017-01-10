@@ -1,0 +1,63 @@
+<!doctype html>
+<html ng-app="myApp">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+  </head>
+  <body style="background-color:powderblue">
+
+	<div ng-controller="myCtrl">
+		<center>
+		<div class="row" style="background-color:grey">
+		<!-- added a comment  -->
+			<p>Please Enter Email id and select a country to move further.</p>
+</div>
+
+			<form name="myForm">
+		
+				Email: <input type="email" ng-model="text" name="email"
+					placeholder="Enter your Email" required /> <br> 
+					<span ng-show="myForm.email.$error.email">Not a valid e-mail
+					address</span>
+
+				<br>
+					Country: <select name="opt" ng-model="selectedName"
+						ng-options="x for x in names" required>
+
+						<option value="" disabled selected required>Please Select</option>
+						<span ng-show="myForm.opt.$error.required">Select Country</span>
+					</select>
+						
+			</form>
+		<br>
+				<input type="checkbox" value="Submit" ng-disabled="myForm.$invalid" ng-model="myVar">	
+				
+				
+<div ng-show="myVar">
+<h1>Welcome</h1>
+
+  <center>
+  <script type="text/ng-template" id="pages/home.html">
+      <h1>Home</h1>
+      <h3>{{message}}</h3>
+    </script>
+    <script type="text/ng-template" id="pages/blog.html">
+      <h1>Blog</h1>
+      <h3>{{message}}</h3>
+    </script>
+    <script type="text/ng-template" id="pages/about.html">
+      <h1>About</h1>
+      <h3>{{message}}</h3>
+    </script>
+
+    <a href="#/home">Home</a>
+    <a href="#/blog">Blog</a>
+    <a href="#/about">About</a>
+
+    <div ng-view></div>
+</center>
+
+</div>
+    <script src="app.js"></script>
+  </body>
+</html>
